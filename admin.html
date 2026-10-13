@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel da Profissional — Daiana Araújo Nail Designer</title>
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body class="admin-body">
+
+
+<div id="telaLogin">
+  <div class="login-caixa">
+    <div class="login-logo" style="background: transparent; border:none; padding:0;">
+      <img src="logob.png" alt="Daiana Araújo Nail Designer" style="height: 70px; width: auto;">
+    </div>
+    <h2>Painel da profissional</h2>
+    <p>Digite a senha de acesso para ver seus agendamentos</p>
+    <form id="formLogin">
+      <input type="password" id="campoSenha" placeholder="••••" autocomplete="current-password" inputmode="numeric">
+      <button type="button" id="btnEntrar">Entrar</button>
+      <div class="aviso" id="loginErro" style="display: none;">Senha incorreta. Tente novamente.</div>
+    </form>
+  </div>
+</div>
+
+
+<div id="telaPainel" style="display:none;">
+
+  <header class="admin-topo">
+    <div class="wrap">
+      <div class="login-logo">
+        <img src="logo.png" alt="Logo" style="height: 60px;">
+      </div>
+      <button class="admin-sair" id="btnSair">Sair</button>
+    </div>
+  </header>
+
+  <div class="admin-painel">
+    <div class="wrap">
+
+      <div class="admin-cabecalho">
+        <div>
+          <h1>Seus agendamentos</h1>
+          <p>Gerencie horários, bloqueie datas e acompanhe seu movimento</p>
+        </div>
+      </div>
+
+     
+      <div class="cards-resumo" id="cardsResumo">
+        <div class="card">
+          <span class="numero" id="cardTotalMes">0</span>
+          <span class="rotulo">Total do Mês</span>
+        </div>
+        <div class="card">
+          <span class="numero" id="cardConfirmados">0</span>
+          <span class="rotulo">Confirmados</span>
+        </div>
+        <div class="card">
+          <span class="numero" id="cardSemana">0</span>
+          <span class="rotulo">Esta Semana</span>
+        </div>
+        <div class="card">
+          <span class="numero" id="cardHoje">0</span>
+          <span class="rotulo">Hoje</span>
+        </div>
+      </div>
+
+    
+      <div class="admin-tabs">
+        <button class="admin-tab ativa" data-secao="secaoAgendamentos">Agendamentos</button>
+        <button class="admin-tab" data-secao="secaoBloqueios">Bloquear datas</button>
+        <button class="admin-tab" data-secao="secaoBackup">Backup</button>
+      </div>
+
+      
+      <section class="admin-secao ativa" id="secaoAgendamentos">
+        <div class="filtros-linha">
+          <input type="text" class="busca-input" id="buscaInput" placeholder="Buscar por nome ou telefone...">
+          <button class="filtro-chip ativo" data-filtro="todos">Todos</button>
+          <button class="filtro-chip" data-filtro="confirmado">Confirmados</button>
+          <button class="filtro-chip" data-filtro="concluido">Concluídos</button>
+          <button class="filtro-chip" data-filtro="cancelado">Cancelados</button>
+        </div>
+        <div id="listaAgendamentosContainer"></div>
+      </section>
+
+      
+      <section class="admin-secao" id="secaoBloqueios">
+        <form class="bloqueio-form" id="formBloqueio">
+          <div class="campo">
+            <label for="bloqueioInicio">De</label>
+            <input type="date" id="bloqueioInicio" required>
+          </div>
+          <div class="campo">
+            <label for="bloqueioFim">Até</label>
+            <input type="date" id="bloqueioFim" required>
+          </div>
+          <div class="campo">
+            <label for="bloqueioMotivo">Motivo (opcional)</label>
+            <input type="text" id="bloqueioMotivo" placeholder="Ex: Férias, feriado...">
+          </div>
+          <button type="submit">Bloquear período</button>
+        </form>
+        <div class="lista-bloqueios" id="listaBloqueios"></div>
+      </section>
+
+    
+      <section class="admin-secao" id="secaoBackup">
+        <div class="backup-caixa">
+          <h3 style="font-family:var(--fonte-display); color:var(--preto-suave);">Backup dos dados</h3>
+          <p>Seus agendamentos ficam salvos apenas neste navegador. Exporte um backup regularmente e guarde em local seguro — ou importe em outro aparelho para continuar de onde parou.</p>
+          <div class="backup-botoes">
+            <button type="button" id="btnExportar">⬇ Exportar backup</button>
+            <label for="inputImportar" class="botao-arquivo">⬆ Importar backup
+              <input type="file" id="inputImportar" accept="application/json">
+            </label>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="comun.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daiana Araújo Nail Designer — Agende seu horário</title>
+<meta name="description" content="Agende seu horário online com Daiana Araújo Nail Designer. Escolha o serviço, a data e o melhor horário para você.">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+
+<header class="topo">
+  <div class="wrap">
+    <div class="marca">
+      <img src="logo.png" alt="Logo" style="height: 60px;">
+    </div>
+    <a href="admin.html" class="link-admin">Área da profissional</a>
+  </div>
+</header>
+
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-texto">
+      <span class="eyebrow">Agendamento online</span>
+      <h1>Suas unhas merecem <em>um horário só seu</em></h1>
+      <p>Escolha o serviço, a data e o horário que combinam com sua agenda. Confirmação na hora, sem precisar esperar resposta.</p>
+      <a href="#agendar" class="btn-ir">Agendar agora ↓</a>
+    </div>
+    <div class="hero-imagem">
+      <img src="unha5.jpeg" alt="Unhas decoradas em vermelho, trabalho de Daiana Araújo Nail Designer">
+      <div class="selo-borboleta" aria-hidden="true">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 35C45 20 25 10 15 15C8 18 8 32 20 40C30 47 45 42 50 35Z" stroke="#7a2b3d" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M50 35C55 20 75 10 85 15C92 18 92 32 80 40C70 47 55 42 50 35Z" stroke="#7a2b3d" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M50 35C45 55 30 62 22 58C16 55
+          <path d="M50 35C55 55 70 62 78 58C84 55 82 45 72 42" stroke="#7a2b3d" stroke-width="3" stroke-linejoin="round"/>
+          <circle cx="50" cy="34" r="2.5" fill="#7a2b3d"/>
+          <path d="M50 34V26" stroke="#7a2b3d" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="secao" id="servicos">
+  <div class="wrap">
+    <div class="secao-titulo">
+      <span class="eyebrow">O que vamos fazer hoje?</span>
+      <h2>Escolha o seu serviço</h2>
+      <p>Toque em um serviço para selecioná-lo</p>
+    </div>
+    <div class="servicos-grade" id="servicosGrade"></div>
+  </div>
+</section>
+
+
+<section class="secao secao-alt" id="galeria">
+  <div class="wrap">
+    <div class="secao-titulo">
+      <span class="eyebrow">Nossos trabalhos</span>
+      <h2>Galeria</h2>
+      <p>Alguns dos últimos trabalhos feitos no salão</p>
+    </div>
+
+    <div class="galeria-grade">
+      <div class="galeria-item" onclick="abrirFoto('unha1.jpeg')">
+        <img src="unha1.jpeg" alt="Trabalho de unhas 1" loading="lazy">
+      </div>
+      <div class="galeria-item" onclick="abrirFoto('unha6.jpeg')">
+        <img src="unha6.jpeg" alt="Trabalho de unhas 2" loading="lazy">
+      </div>
+      <div class="galeria-item" onclick="abrirFoto('unha3.jpeg')">
+        <img src="unha3.jpeg" alt="Trabalho de unhas 3" loading="lazy">
+      </div>
+      <div class="galeria-item" onclick="abrirFoto('unha8.jpeg')">
+        <img src="unha8.jpeg" alt="Trabalho de unhas 4" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox-fundo" id="lightboxFundo" onclick="fecharFoto()">
+  <img id="lightboxImg" src="" alt="Foto ampliada">
+</div>
+
+<section class="secao secao-alt" id="agendar">
+  <div class="wrap">
+    <div class="secao-titulo">
+      <span class="eyebrow">Falta pouco</span>
+      <h2>Escolha a data, o horário e confirme</h2>
+    </div>
+
+    <div class="painel-agendamento">
+
+      <div class="bloco">
+        <h3><span class="numero">1</span>Escolha a data</h3>
+        <div class="cal-cabecalho">
+          <button class="cal-nav" id="mesAnterior" aria-label="Mês anterior">‹</button>
+          <span class="mes-ano" id="mesAnoAtual"></span>
+          <button class="cal-nav" id="mesProximo" aria-label="Próximo mês">›</button>
+        </div>
+        <div class="cal-semana">
+          <span>D</span><span>S</span><span>T</span><span>Q</span><span>Q</span><span>S</span><span>S</span>
+        </div>
+        <div class="cal-dias" id="calDias"></div>
+        <div class="legenda">
+          <span><i class="i-livre"></i> Disponível</span>
+          <span><i class="i-lotado"></i> Poucas vagas</span>
+          <span><i class="i-fechado"></i> Fechado</span>
+        </div>
+      </div>
+
+      
+      <div class="bloco">
+        <h3><span class="numero">2</span>Escolha o horário</h3>
+        <div id="horariosContainer">
+          <p class="horarios-vazio">Selecione uma data para ver os horários disponíveis</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="bloco" style="margin-top:24px;">
+      <h3><span class="numero">3</span>Seus dados</h3>
+
+      <div class="resumo-selecao" id="resumoSelecao">
+        <span class="resumo-vazio">Selecione o serviço, a data e o horário acima para continuar</span>
+      </div>
+
+      <form id="formAgendamento" novalidate>
+        <div class="campo">
+          <label for="campoNome">Nome completo</label>
+          <input type="text" id="campoNome" name="nome" placeholder="Seu nome" required>
+        </div>
+        <div class="campo">
+          <label for="campoTelefone">Telefone / WhatsApp</label>
+          <input type="tel" id="campoTelefone" name="telefone" placeholder="(00) 00000-0000" required maxlength="16">
+        </div>
+        <div class="campo">
+          <label for="campoObs">Observações <span style="font-weight:400;color:#a99490;">(opcional)</span></label>
+          <textarea id="campoObs" name="observacao" placeholder="Alguma referência de cor, modelo ou detalhe importante?"></textarea>
+        </div>
+
+        <button type="submit" class="btn-confirmar" id="btnConfirmar" disabled>Confirmar agendamento</button>
+
+        <div class="aviso erro" id="avisoErro"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<footer class="rodape">
+  <p><strong>Daiana Araújo</strong> Nail Designer — Agendamento online</p>
+</footer>
+
+
+<div class="modal-fundo" id="modalConfirmacao">
+  <div class="modal-caixa">
+    <div class="modal-icone">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="11" stroke="#7a2b3d" stroke-width="1.5"/>
+        <path d="M7 12.5L10.2 15.5L17 8.5" stroke="#7a2b3d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <h3>Agendamento confirmado!</h3>
+    <p>Anote os detalhes abaixo. Te esperamos no horário combinado 💅</p>
+    <div class="modal-detalhes" id="modalDetalhes"></div>
+    <button class="btn-fechar-modal" id="btnFecharModal">Concluir</button>
+  </div>
+</div>
+
+<script src="comun.js"></script>
+<script src="publica.js"></script>
+</body>
+</html>
